@@ -61,24 +61,65 @@ npm run preview
 
 ## Deployment
 
-### Deploy to Vercel
+### Deploy to Vercel (Recommended)
 
-```bash
-# Install Vercel CLI
-npm install -g vercel
+The easiest way to deploy this application:
 
-# Deploy
-vercel
-```
+1. **Push to GitHub**:
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/voice-analytics-dashboard.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+2. **Deploy to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Select your GitHub repository
+   - Configure environment variables:
+     - `VITE_SUPABASE_URL` (optional)
+     - `VITE_SUPABASE_ANON_KEY` (optional)
+   - Click "Deploy"
+
+   Your app will be live at a URL like: `https://voice-analytics-dashboard.vercel.app`
+
+3. **Alternative: Deploy via Vercel CLI**:
+   ```bash
+   npm install -g vercel
+   vercel
+   ```
 
 ### Deploy to Netlify
 
-```bash
-# Build first
-npm run build
+1. **Build locally**:
+   ```bash
+   npm run build
+   ```
 
-# Deploy using Netlify CLI or connect your GitHub repo on netlify.com
-```
+2. **Deploy using Netlify CLI**:
+   ```bash
+   npm install -g netlify-cli
+   netlify deploy --prod --dir=dist
+   ```
+
+3. **Or connect on netlify.com**:
+   - Sign up at [netlify.com](https://netlify.com)
+   - Click "New site from Git"
+   - Connect your GitHub repository
+   - Set build command: `npm run build`
+   - Set publish directory: `dist`
+   - Add environment variables if using Supabase
+   - Deploy
+
+### Deploy to Other Platforms
+
+The app can be deployed to any static hosting service that supports Node.js build processes:
+- GitHub Pages
+- Azure Static Web Apps
+- AWS Amplify
+- Google Cloud Run
+- Railway
+- Heroku
 
 ## Project Structure
 
