@@ -73,7 +73,7 @@ function App() {
         setAgentPerformanceData(performanceData.customData)
       }
     } catch (error) {
-      console.error('Error loading custom data:', error)
+      // Silently fail and use dummy data
     } finally {
       setIsLoading(false)
     }
@@ -95,7 +95,7 @@ function App() {
       const data = await getCustomData(email, chartType)
       setPreviousChartData(data?.customData || null)
     } catch (error) {
-      console.error('Error checking previous data:', error)
+      // Silently fail
     }
     setShowEditModal(true)
   }
@@ -136,7 +136,6 @@ function App() {
 
       setShowEditModal(false)
     } catch (error) {
-      console.error('Error saving custom data:', error)
       alert('Error saving data. Please try again.')
     } finally {
       setIsLoading(false)

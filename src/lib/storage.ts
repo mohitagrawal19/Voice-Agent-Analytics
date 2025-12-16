@@ -42,7 +42,6 @@ export async function saveCustomData(data: UserChartCustomization) {
         if (insertError) throw insertError
       }
     } catch (error) {
-      console.error('Error saving to Supabase:', error)
       // Fallback to mock storage
       mockStorage[`${email}-${data.chartType}`] = data
     }
@@ -69,7 +68,6 @@ export async function getCustomData(email: string, chartType: string) {
       if (error) throw error
       return data as UserChartCustomization
     } catch (error) {
-      console.error('Error fetching from Supabase:', error)
       // Fallback to mock storage
       return mockStorage[`${email}-${chartType}`] || null
     }
