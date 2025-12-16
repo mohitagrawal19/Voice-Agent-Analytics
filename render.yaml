@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: voice-analytics-dashboard
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s dist -l 3000
+    envVars:
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+    staticPublishPath: dist
